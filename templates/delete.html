@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Delete</title>
+</head>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="main.css">
+<link href="https://fonts.googleapis.com/css?family=Coda" rel="stylesheet">
+
+<body>
+<nav class="navbar navbar-dark bg-dark">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="collapse navbar-collapse" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="{% url 'index' %}">Home</a>
+      
+      <button type="button" class="collapse navbar-collapse" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="{% url 'enroll' %}">Enroll</a>
+      
+            <button type="button" class="collapse navbar-collapse" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+      </button>
+  <a class="navbar-brand" href="{% url 'gallery' %}">View Details</a> 
+                                    
+          <button type="button" class="collapse navbar-collapse" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="{% url 'recognize' %}">Recognize</a>                                    
+
+          <button type="button" class="collapse navbar-collapse" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="{% url 'admin:index' %}">Django Admin</a>
+                                    
+    </div>
+</nav>
+
+{% if messages %}
+  {% for message in messages %}
+    <div align="center" {% if message.level_tag %} class="alert alert-{{ message.level_tag }}"{% endif %}>
+      <a class="close" data-dismiss="alert" href="{% url 'delete' %}">&times;</a>
+      {{ message }}
+    </div>
+  {% endfor %}
+{% endif %}
+
+<h2 style="padding-left:720px;padding-top:50px">Remove record(s)</h2>
+<form action="" method="post" enctype="multipart/form-data" accept-charset="utf-8"> {% csrf_token %}
+
+<div class="form-group" style="padding-left:630px;padding-top:100px">
+<div class="col-5">
+<label style="text-align:center;padding-left:85px;"><h5>Enter the ID of the record</h5></label>
+<br>
+<label class="btn btn-default">
+<input style="padding-left:130px;" type="text" class="btn btn-default" name="id">
+<input type="submit" value="Submit" class="btn btn-default" style="left:410px;">
+</label>
+<br>
+<label style="text-align:center;padding-left:60px;"><h5>Click below to delete all entries</h5></label>
+<br>
+<input style="left:160px;position:absolute;" type="submit" value="Delete gallery" name="delete" class="btn btn-danger">
+</label>
+</div>
+</div>
+</form>
+<a href="{% url 'login' %}" class="btn btn-danger btn-lg" style="left:1500px;top:110px;position: absolute;font-size:1.2em" role="button" aria-pressed="true">Logout</a>
+</body>
+</html>

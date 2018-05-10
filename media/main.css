@@ -1,0 +1,18 @@
+body {
+    font-family: 'Mina', sans-serif;
+    background-image: url("xyz.jpg");
+	color: black;
+	
+}
+
+.transparent{
+	background-image: Transparent;
+}
+
+.main{
+    font-family: 'Mina', sans-serif;
+    color: black;
+    font-size: 50px;
+	text-align: center;
+    }
+

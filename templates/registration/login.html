@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sign-in</title>
+</head>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="main.css">
+<link href="https://fonts.googleapis.com/css?family=Coda" rel="stylesheet">
+
+<body>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<h1 class="main">Criminal Identification System</h1>
+<div style="padding-left:720px;padding-top:90px">
+  <h2>Signin</h2>
+  <form method="post" action="{% url 'index' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Submit</button>
+  </form>
+  <label class="btn btn-default">
+<p>No account?<button type="button" class="btn btn-default"><a href="{% url 'signup' %}"> Create one</a></button></p>
+</label>
+</div>
+</body>
+</html>

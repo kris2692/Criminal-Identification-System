@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Main menu</title>
+</head>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="main.css">
+<link href="https://fonts.googleapis.com/css?family=Coda" rel="stylesheet">
+
+<body>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<h1 class="main">Criminal Identification System</h1>
+<div class="container" align="center" style="width:45%; padding-top: 120px; padding-left: 50px">
+<a href="{% url 'enroll' %}" class="btn btn-success btn-lg">
+      <span style="font-size:9.5em;" class="glyphicon glyphicon-user" aria-hidden="true"></span> Enroll   
+</a>
+
+<a href="{% url 'list' %}" class="btn btn-primary btn-lg">
+      <span style="font-size:9.5em;" class="glyphicon glyphicon-th-list"></span> View Details 
+</a>
+
+<a href="{% url 'recognize' %}" class="btn btn-secondary btn-lg">
+      <span style="font-size:9.5em;" class="glyphicon glyphicon-eye-open"></span> Recognize 
+</a>
+<p></p>
+<a href="{% url 'delete' %}" class="btn btn-danger btn-lg">
+      <span style="font-size:9.5em;" class="glyphicon glyphicon-trash"></span> Remove 
+</a>
+
+<a href="{% url 'admin:index' %}" class="btn btn-warning btn-lg">
+      <span style="font-size:9.5em;" class="glyphicon glyphicon-cog"></span> Django Admin 
+</a>
+
+</div>
+<a href="{% url 'login' %}" class="btn btn-danger btn-lg" style="left:1500px;top:110px;position: absolute;font-size:1.2em" role="button" aria-pressed="true">Logout</a>
+
+</body>
+</html>

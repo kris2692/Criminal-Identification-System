@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Enroll</title>
+
+</head>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="main.css">
+<link href="https://fonts.googleapis.com/css?family=Coda" rel="stylesheet">
+
+
+<body>
+<nav class="navbar navbar-dark bg-dark">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="collapse navbar-collapse" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="{% url 'index' %}">Home</a>
+      
+      <button type="button" class="collapse navbar-collapse" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="{% url 'list' %}">View Details</a>
+      
+            <button type="button" class="collapse navbar-collapse" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="{% url 'recognize' %}">Recognize</a>   
+                                    
+          <button type="button" class="collapse navbar-collapse" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="{% url 'delete' %}">Remove</a>                                    
+
+          <button type="button" class="collapse navbar-collapse" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="{% url 'admin:index' %}">Django Admin</a>
+                                    
+    </div>
+</nav>
+
+{% if messages %}
+  {% for message in messages %}
+    <div align="center" {% if message.level_tag %} class="alert alert-{{ message.level_tag }}"{% endif %}>
+      <a class="close" data-dismiss="alert" href="{% url 'enroll' %}">&times;</a>
+      {{ message }}
+    </div>
+  {% endfor %}
+{% endif %}
+
+
+    <script src="validations.js"></script>
+<form action="" method="post" enctype="multipart/form-data" accept-charset="utf-8" name="myForm" onsubmit="return(validate());"> {% csrf_token %}
+<h2 style="padding-left:770px;padding-top:50px">Enroll details</h2>
+
+  <div class="form-group" style="padding-left:650px;padding-top:50px">
+    <div class="col-5">
+    <label>Suspect Name:</label>
+      <input type="text" class="form-control" name="name" placeholder="Name">
+    </div>
+    <br>
+
+    <div class="col-5">
+    <label>Last known location:</label>
+      <input type="text" class="form-control" name="location" placeholder="Location">
+    </div>
+        <br>
+
+    <div class="col-5">
+    <label>Crime comitted:</label>
+      <textarea class="form-control" name="description" rows="3" placeholder="Description"></textarea>
+    </div>
+        <br>
+
+    <div class="col-5">
+    <label>Incident date:</label>
+      <input class="form-control" type="date" name="date">
+    </div>
+        <br>
+
+    <div class="col-5">
+      <label>Image of suspect:</label>
+    <input type="file" class="form-control-file" name="image">
+    </div>
+        <br>
+        <div class="col-5">
+  <button type="submit" value="Submit" class="btn btn-warning" style="left:170px;position:absolute">Submit</button>
+    </div>
+    
+  </div>
+</form>
+<a href="{% url 'login' %}" class="btn btn-danger btn-lg" style="left:1500px;top:110px;position: absolute;font-size:1.2em" role="button" aria-pressed="true">Logout</a>
+
+
+<!--
+<p>Name<input type="text" name="name"></p>
+<p>Location<input type="text" name="location"></p>
+<p>Description<input type="text" name="description"></p>
+<p>Date<input type="date" name="date"></p>
+<p>Image<input type="file" name="image">
+<input type="submit" value="Submit" > 
+-->
+</body>
+</html>
+
